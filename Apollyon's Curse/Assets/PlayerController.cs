@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour {
 
-	float fSpeed = 40.0f;
+	float fSpeed = 400.0f;
 	public Vector3 jump;
 	[Range(1,10)]
 	public float jumpForce = 5.0f;
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
 	public bool isGrounded;
 	Rigidbody rb;
+    public Vector3 currentVelocity;
 
 	// Use this for initialization
 	void Start () {
@@ -22,14 +23,16 @@ public class PlayerController : MonoBehaviour {
 		jump = new Vector3 (0.0f, 2.0f, 0.0f);
 	}
 
-	void OnCollisionStay(){
+	void OnCollisionEnter(){
 		isGrounded = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        currentVelocity = rb.velocity;
         //Left Right movement
-        rb.velocity += Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed;
+        currentVelocity.x = 0.0f;
+        currentVelocity += Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed;
 
         /*
 		var x = Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed;
@@ -38,15 +41,16 @@ public class PlayerController : MonoBehaviour {
         */
 		//Basic jump
 		if (Input.GetButtonDown ("Jump") && isGrounded ) {
-			rb.velocity = jump * jumpForce;
+			currentVelocity = jump * jumpForce;
 			isGrounded = false;
 		}
 		//Better Jump
-		if (rb.velocity.y < 0) {
-			rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+		if (currentVelocity.y < 0) {
+			currentVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 		} 
-		else if(rb.velocity.y > 0 && !Input.GetButton("Jump")) {
-			rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+		else if(currentVelocity.y > 0 && !Input.GetButton("Jump")) {
+			currentVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 		}
+        rb.velocity = currentVelocity;
     }
 }
