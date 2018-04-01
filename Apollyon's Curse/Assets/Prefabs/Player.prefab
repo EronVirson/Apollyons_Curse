@@ -101,6 +101,7 @@ MonoBehaviour:
   isGrounded: 0
   currentVelocity: {x: 0, y: 0, z: 0}
   tapSpeed: 0.5
+  SwordSwipe: {fileID: 1864996513123370, guid: ffb34004e4e32fc4695bf34a4393aff6, type: 2}
 --- !u!136 &136355714297833462
 CapsuleCollider:
   m_ObjectHideFlags: 1

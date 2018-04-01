@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
     public float tapSpeed = 0.5f;
     private float lastTapTime = 0.0f;
 
+    public GameObject SwordSwipe;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
@@ -39,7 +41,10 @@ public class PlayerController : MonoBehaviour {
         //Attack thingy
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
-
+            GameObject sword = Instantiate(SwordSwipe) as GameObject;
+            sword.transform.parent = this.transform;
+            sword.transform.localPosition = Vector3.zero + new Vector3(0.7f, 0.62f);
+            Destroy(sword, .25f);
         }
         
         //Double Tap Dash
