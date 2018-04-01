@@ -36,6 +36,12 @@ public class PlayerController : MonoBehaviour {
         currentVelocity.x = 0.0f;
         currentVelocity += Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed;
 
+        //Attack thingy
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+
+        }
+        
         //Double Tap Dash
         if (Input.GetKeyDown(KeyCode.A))
         {
