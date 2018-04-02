@@ -6,7 +6,7 @@ public class Smasher : MonoBehaviour {
 
     public Vector3 startPosition;
     public GameObject player;
-    public float triggerDistance = 2.5f;
+    public float triggerDistance = 4.5f;
     public float speed = 10;
     public float reloadSpeed = 5;
 
