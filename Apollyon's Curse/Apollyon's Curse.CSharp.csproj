@@ -219,6 +219,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\2.5DTileEditor\_Core\TileEditor.cs" />
+    <Compile Include="Assets\2.5DTileEditor\_Core\TileSet.cs" />
+    <Compile Include="Assets\2.5DTileEditor\Example_2.5D_Platformer\CharacterMovement.cs" />
+    <Compile Include="Assets\2.5DTileEditor\Example_RollABall\TiltPlane.cs" />
+    <Compile Include="Assets\2.5DTileEditor\Example_RollABall\WinTrigger.cs" />
     <Compile Include="Assets\CameraController.cs" />
     <Compile Include="Assets\PlayerController.cs" />
   </ItemGroup>
