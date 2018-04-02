@@ -219,20 +219,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Smasher.cs" />
-    <Compile Include="Assets\Scripts\SwordSwipe.cs" />
-=======
     <Compile Include="Assets\2.5DTileEditor\_Core\TileEditor.cs" />
     <Compile Include="Assets\2.5DTileEditor\_Core\TileSet.cs" />
     <Compile Include="Assets\2.5DTileEditor\Example_2.5D_Platformer\CharacterMovement.cs" />
     <Compile Include="Assets\2.5DTileEditor\Example_RollABall\TiltPlane.cs" />
     <Compile Include="Assets\2.5DTileEditor\Example_RollABall\WinTrigger.cs" />
-    <Compile Include="Assets\CameraController.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
->>>>>>> Milestone2Progress
+    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\FallingPlatform.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Smasher.cs" />
+    <Compile Include="Assets\Scripts\SwordSwipe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

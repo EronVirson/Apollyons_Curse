@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Apollyon Level Testv1/Assets/ApollyonLevel1.unity
+- path: Assets/testbed.unity
   isLoaded: 1
   isActive: 1
