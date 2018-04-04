@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	public float fallMultiplier = 2.5f;
 	public float lowJumpMultiplier = 2f;
 
-	public bool isGrounded;
+	public int isGrounded = 2;
 	Rigidbody rb;
     public Vector3 currentVelocity;
 
@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(){
-		isGrounded = true;
+		//isGrounded = true;
+		isGrounded = 2;
 	}
 	
 	// Update is called once per frame
@@ -71,9 +72,10 @@ public class PlayerController : MonoBehaviour {
         
 
         //Basic jump
-        if (Input.GetButtonDown ("Jump") && isGrounded ) {
+        if (Input.GetButtonDown ("Jump") && isGrounded != 0 ) {
 			currentVelocity = Vector3.up * jumpForce;
-			isGrounded = false;
+			//isGrounded = false;
+			isGrounded--;
 		}
 		//Better Jump
 		if (currentVelocity.y < 0) {

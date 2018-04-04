@@ -6,7 +6,7 @@ public class TurretAiming : MonoBehaviour {
     public GameObject player;
     public float timer = 5.0f;
     public GameObject muzzle;
-    public float triggerDistance = 0.5f;
+    public float triggerDistance = 5.0f;
     public float reloadSpeed = 5;
     public GameObject bullet;
 
