@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TurretAiming : MonoBehaviour {
     public GameObject player;
-    public float timer = 5.0f;
+    public float timer = 2.5f;
     public GameObject muzzle;
     public float triggerDistance = 5.0f;
-    public float reloadSpeed = 5;
+    public float reloadSpeed = 1.0f;
     public GameObject bullet;
 
     // Use this for initialization
@@ -28,7 +28,7 @@ public class TurretAiming : MonoBehaviour {
             }
             else
             {
-                timer = 2.0f;
+				timer = reloadSpeed;
                 GameObject bang = Instantiate(bullet);
                 bang.transform.position = muzzle.transform.position;
                 bang.transform.forward = this.transform.forward;
