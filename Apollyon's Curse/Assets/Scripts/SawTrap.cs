@@ -13,6 +13,7 @@ public class SawTrap : MonoBehaviour {
     public float speed = 10;
     public float reloadSpeed = 5;
 
+
     public enum TrapState
     {
         Idle,

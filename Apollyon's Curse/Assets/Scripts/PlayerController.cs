@@ -30,15 +30,18 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 	}
 
-	void OnCollisionEnter(Collider other){
-		if(other.tag == "Environment")
+	void OnCollisionEnter(Collision other){
+        Debug.Log("Player Hit something!");
+        if (other.collider.tag == "Environment")
         {
+            Debug.Log("PlayerOnCollisionEnterEnvironment");
             //isGrounded = true;
             isGrounded = 2;
         }
-        if(other.tag == "HurtBox")
+        if(other.collider.tag == "HurtBox")
         {
-            health -= hurtBoxDamage;
+            //Debug.Log("PlayerOnCollisionEnterHurtBox");
+            SendMessage("ApplyDamage", hurtBoxDamage);
         }
 	}
 	
@@ -97,5 +100,10 @@ public class PlayerController : MonoBehaviour {
 		}
         //Send velocity update
         rb.velocity = currentVelocity;
+    }
+
+    void ApplyDamage(int damage)
+    {
+        health -= damage;
     }
 }
