@@ -58,13 +58,14 @@ public class PlayerController : MonoBehaviour {
         {
             GameObject sword = Instantiate(SwordSwipe) as GameObject;
             sword.transform.parent = this.transform;
-            sword.transform.localPosition = Vector3.zero + new Vector3(0.7f, 0.62f);
-            Destroy(sword, .25f);
+            sword.transform.localPosition = Vector3.zero + new Vector3(0.0f, 1.0f, 0.0f);
+            //Destroy(sword, .25f);
         }
         
         //Double Tap Dash
         if (Input.GetKeyDown(KeyCode.A))
         {
+            transform.forward = Vector3.left;
             if((Time.time - lastTapTime) < tapSpeed)
             {
                 //Tap Success
@@ -75,6 +76,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
+            transform.forward = Vector3.right;
             if ((Time.time - lastTapTime) < tapSpeed)
             {
                 //Tap Success

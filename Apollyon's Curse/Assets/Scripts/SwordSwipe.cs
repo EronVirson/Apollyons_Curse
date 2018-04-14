@@ -15,13 +15,15 @@ public class SwordSwipe : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //this.transform.localPosition = Vector3.Slerp(this.transform.localPosition, new Vector3(1, 0, 0) + this.transform.localPosition, 0.01f);
-        transform.RotateAround(transform.parent.position, new Vector3(0, 0, -1), Time.deltaTime * speed);
+        transform.RotateAround(transform.parent.position, transform.parent.transform.right, Time.deltaTime * speed);
 
+        /*
         //Despawn timer
         timer -= Time.deltaTime;
         if(timer <= 0.0f)
         {
             Destroy(this);
         }
+        */
 	}
 }
