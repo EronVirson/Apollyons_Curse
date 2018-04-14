@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641252, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -134,8 +134,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 71254605}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.50166357, y: 0, z: 0}
-  m_LocalScale: {x: 0.108585216, y: 1, z: 1}
+  m_LocalPosition: {x: -0.3917414, y: 0, z: 0}
+  m_LocalScale: {x: 0.08479253, y: 0.51840407, z: 1}
   m_Children: []
   m_Father: {fileID: 1849768547}
   m_RootOrder: 1
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 321221962}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 700242794}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -402,28 +402,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 700242792}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &939168426 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1592835934300866, guid: 4fa7ac6670192d34dbb870fe9be1d00f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1076552208}
---- !u!114 &939168433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 939168426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 230b49cac43443c41b33a71437878c5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  leftPushRange: 45
-  rightPushRange: 135
-  velocityThreshold: {x: 0, y: 0, z: 120}
-  AngularCapture: {x: 0, y: 0, z: 0}
-  AngMagnitude: 0
 --- !u!1 &1012449893
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,16 +471,6 @@ Prefab:
     - target: {fileID: 4407992100796210, guid: 4fa7ac6670192d34dbb870fe9be1d00f, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 54687803322132528, guid: 4fa7ac6670192d34dbb870fe9be1d00f,
-        type: 2}
-      propertyPath: m_Constraints
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 54583536339784814, guid: 4fa7ac6670192d34dbb870fe9be1d00f,
-        type: 2}
-      propertyPath: m_Mass
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fa7ac6670192d34dbb870fe9be1d00f, type: 2}
@@ -711,7 +679,7 @@ GameObject:
   - component: {fileID: 1149490268}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -804,8 +772,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1183249870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4973203, y: 0, z: 0}
-  m_LocalScale: {x: 0.108585216, y: 1, z: 1}
+  m_LocalPosition: {x: 0.3883498, y: 0, z: 0}
+  m_LocalScale: {x: 0.08479253, y: 0.51840407, z: 1}
   m_Children: []
   m_Father: {fileID: 1849768547}
   m_RootOrder: 0
@@ -865,7 +833,7 @@ GameObject:
   - component: {fileID: 1487217798}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1009,6 +977,10 @@ Prefab:
       propertyPath: timer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1206449788436158, guid: 996a57125d3c2bb45b4790278b8fe0e9, type: 2}
+      propertyPath: m_TagString
+      value: Environment
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 996a57125d3c2bb45b4790278b8fe0e9, type: 2}
   m_IsPrefabParent: 0
@@ -1061,7 +1033,7 @@ GameObject:
   - component: {fileID: 1722022897}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1170,7 +1142,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: feb02886d4a7165478b679bdb4199e82, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1216,8 +1188,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1849768543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.81, y: 7, z: 0}
-  m_LocalScale: {x: 9.209356, y: 1, z: 1}
+  m_LocalPosition: {x: 31.81, y: 7.1, z: 0}
+  m_LocalScale: {x: 11.793491, y: 1.9289973, z: 1}
   m_Children:
   - {fileID: 1183249871}
   - {fileID: 71254606}
@@ -1237,9 +1209,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  startPosition: {fileID: 0}
-  endPosition: {fileID: 0}
-  Saw: {fileID: 0}
+  startPosition: {fileID: 1183249870}
+  endPosition: {fileID: 71254605}
+  Saw: {fileID: 2068065148}
+  gotoEnd: 1
+  speed: 10
+  reloadSpeed: 5
+  state: 0
 --- !u!1001 &2020295652
 Prefab:
   m_ObjectHideFlags: 0
@@ -1379,7 +1355,7 @@ GameObject:
   - component: {fileID: 2068065149}
   m_Layer: 0
   m_Name: Saw
-  m_TagString: Untagged
+  m_TagString: HurtBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1425,7 +1401,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2068065148}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -1444,8 +1420,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2068065148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0042948374, y: 0, z: 0}
-  m_LocalScale: {x: 0.108585216, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.08479253, y: 0.51840407, z: 1}
   m_Children: []
   m_Father: {fileID: 1849768547}
   m_RootOrder: 2

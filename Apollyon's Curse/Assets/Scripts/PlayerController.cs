@@ -21,14 +21,25 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject SwordSwipe;
 
+    public int health = 100;
+
+    private int hurtBoxDamage = 10;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 	}
 
-	void OnCollisionEnter(){
-		//isGrounded = true;
-		isGrounded = 2;
+	void OnCollisionEnter(Collider other){
+		if(other.tag == "Environment")
+        {
+            //isGrounded = true;
+            isGrounded = 2;
+        }
+        if(other.tag == "HurtBox")
+        {
+            health -= hurtBoxDamage;
+        }
 	}
 	
 	// Update is called once per frame
