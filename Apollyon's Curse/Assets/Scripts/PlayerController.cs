@@ -54,12 +54,12 @@ public class PlayerController : MonoBehaviour {
         currentVelocity += Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed;
 
         //Attack thingy
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+		if(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.RightControl))
         {
             GameObject sword = Instantiate(SwordSwipe) as GameObject;
             sword.transform.parent = this.transform;
             sword.transform.localPosition = Vector3.zero + new Vector3(0.0f, 1.0f, 0.0f);
-            //Destroy(sword, .25f);
+            Destroy(sword, .25f);
         }
         
         //Double Tap Dash
