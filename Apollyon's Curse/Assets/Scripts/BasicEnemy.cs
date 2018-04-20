@@ -65,6 +65,11 @@ public class BasicEnemy : MonoBehaviour {
         //Capture current velocity
         currentVelocity = rb.velocity;
         
+        if(health <= 0)
+        {
+            state = EnemyState.Broken;
+        }
+
 		switch (state)
 		{
 		case EnemyState.Idle:
