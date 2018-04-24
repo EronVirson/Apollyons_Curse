@@ -54,7 +54,9 @@ public class PlayerController : MonoBehaviour {
         currentVelocity += Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed;
 
         //Attack thingy
-		if(Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.RightControl))
+		if(Input.GetKeyDown(KeyCode.Mouse0) || 
+            Input.GetKeyDown(KeyCode.RightControl) ||
+            Input.GetButtonDown("Fire1"))
         {
             GameObject sword = Instantiate(SwordSwipe) as GameObject;
             sword.transform.parent = this.transform;
@@ -88,7 +90,8 @@ public class PlayerController : MonoBehaviour {
         
 
         //Basic jump
-        if (Input.GetButtonDown ("Jump") && isGrounded != 0 ) {
+        if ((Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetButtonDown ("Jump")) 
+            && isGrounded != 0 ) {
 			currentVelocity = Vector3.up * jumpForce;
 			//isGrounded = false;
 			isGrounded--;
