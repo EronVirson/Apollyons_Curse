@@ -65,7 +65,8 @@ public class PlayerController : MonoBehaviour {
         }
         
         //Double Tap Dash
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) ||
+			Input.GetAxis("Horizontal") < 0.0f)
         {
             transform.forward = Vector3.left;
             if((Time.time - lastTapTime) < tapSpeed)
@@ -76,7 +77,8 @@ public class PlayerController : MonoBehaviour {
             }
             lastTapTime = Time.time;
         }
-        if (Input.GetKeyDown(KeyCode.D))
+		if (Input.GetKeyDown(KeyCode.D) ||
+			Input.GetAxis("Horizontal") > 0.0f)
         {
             transform.forward = Vector3.right;
             if ((Time.time - lastTapTime) < tapSpeed)
@@ -90,25 +92,30 @@ public class PlayerController : MonoBehaviour {
         
 
         //Basic jump
-        if ((Input.GetKeyDown(KeyCode.Joystick1Button2) || Input.GetButtonDown ("Jump")) 
-            && isGrounded != 0 ) {
-			currentVelocity = Vector3.up * jumpForce;
+        if (Input.GetButtonDown ("Jump") && isGrounded != 0 ) {
+			currentVelocity += Vector3.up * jumpForce;
 			//isGrounded = false;
 			isGrounded--;
 		}
 		//Better Jump
+		//BetterJump();
+
+        //Send velocity update
+        rb.velocity = currentVelocity;
+	}
+
+    void ApplyDamage(int damage)
+    {
+        health -= damage;
+    }
+
+	void BetterJump()
+	{
 		if (currentVelocity.y < 0) {
 			currentVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
 		} 
 		else if(currentVelocity.y > 0 && !Input.GetButton("Jump")) {
 			currentVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 		}
-        //Send velocity update
-        rb.velocity = currentVelocity;
-    }
-
-    void ApplyDamage(int damage)
-    {
-        health -= damage;
-    }
+	}
 }

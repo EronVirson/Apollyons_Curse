@@ -21,7 +21,7 @@ public class TurretAiming : MonoBehaviour {
         if ((Vector3.Distance(transform.position, player.transform.position) <= triggerDistance) && transform.position.y >= player.transform.position.y)
         {
             //Shoot em!
-            this.transform.LookAt(player.transform);
+            this.transform.LookAt(player.transform, Vector3.right);
             if (timer > 0.0f)
             {
                 timer -= Time.deltaTime;

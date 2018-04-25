@@ -23,6 +23,7 @@ public class BasicEnemy : MonoBehaviour {
     public int health = 10;
 
     public int hurtBoxDamage = 10;
+    public float distanceToPlayer;
 
 	public enum EnemyState
 	{
@@ -48,6 +49,10 @@ public class BasicEnemy : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
+        if (other.collider.tag == "Environment")
+        {
+            isGrounded = 2;
+        }
         if (other.collider.tag == "HurtBox")
         {
             //Debug.Log("PlayerOnCollisionEnterHurtBox");
@@ -64,8 +69,15 @@ public class BasicEnemy : MonoBehaviour {
     void Update () {
         //Capture current velocity
         currentVelocity = rb.velocity;
-        
-        if(health <= 0)
+
+        distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        if(distanceToPlayer > triggerDistance)
+        {
+            state = EnemyState.Idle;
+        }
+
+        if (health <= 0)
         {
             state = EnemyState.Broken;
         }
@@ -86,17 +98,7 @@ public class BasicEnemy : MonoBehaviour {
 			break;
 		}
 
-		//Better Jump
-        /* 
-        if (currentVelocity.y < 0)
-        {
-            currentVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        }
-        else if (currentVelocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            currentVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
-        } 
-        */
+		
         //Send velocity update
         rb.velocity = currentVelocity;
     }
@@ -105,7 +107,7 @@ public class BasicEnemy : MonoBehaviour {
 	{
         
 		//Is the player nearby?
-		if((Vector3.Distance(transform.position, player.transform.position) <= triggerDistance))
+		if(distanceToPlayer <= triggerDistance)
 		{
 			//Yes, trigger the trap
 			state = EnemyState.Chase;
@@ -134,6 +136,11 @@ public class BasicEnemy : MonoBehaviour {
 		if (player.transform.position.x > transform.position.x) {
 			MoveRight ();
 		}
+        //Is player above?
+        if(player.transform.position.y > transform.position.y)
+        {
+            Jump();
+        }
 	}
 
 	void Attack()
@@ -153,8 +160,8 @@ public class BasicEnemy : MonoBehaviour {
     {
         if (isGrounded != 0)
         {
-            currentVelocity = Vector3.up * jumpForce;
-            //isGrounded = false;
+            currentVelocity += Vector3.up * jumpForce;
+            
             isGrounded--;
         }
     }
