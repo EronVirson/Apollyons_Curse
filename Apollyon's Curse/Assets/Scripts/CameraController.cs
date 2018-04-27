@@ -12,7 +12,8 @@ public class CameraController : MonoBehaviour {
 	void Start () {
 		//Calculate and store the offset value by getting the distance between the player's position and camera's position.
 		offset = new Vector3(0, 1, -10);
-	}
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     
 

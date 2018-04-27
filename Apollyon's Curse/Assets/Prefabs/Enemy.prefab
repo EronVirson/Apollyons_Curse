@@ -114,7 +114,7 @@ MonoBehaviour:
   self: {fileID: 1796508503996472}
   player: {fileID: 0}
   fSpeed: 10
-  jumpForce: 9
+  jumpForce: 5
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
   isGrounded: 2
@@ -122,10 +122,11 @@ MonoBehaviour:
   SwordSwipe: {fileID: 1686311375790348, guid: bce81a7fb67eaf5498ef3b2d806e38de, type: 2}
   health: 100
   hurtBoxDamage: 10
+  distanceToPlayer: 0
   state: 0
   attackDelay: 2
   attackRange: 2
-  triggerDistance: 5
+  triggerDistance: 10
 --- !u!136 &136679734549725338
 CapsuleCollider:
   m_ObjectHideFlags: 1

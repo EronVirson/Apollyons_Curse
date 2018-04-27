@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 
         //Basic jump
         if (Input.GetButtonDown ("Jump") && isGrounded != 0 ) {
-			currentVelocity += Vector3.up * jumpForce;
+			currentVelocity.y = jumpForce;
 			//isGrounded = false;
 			isGrounded--;
 		}
