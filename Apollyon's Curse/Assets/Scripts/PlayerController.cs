@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour {
         if (other.collider.tag == "Environment")
         {
             Debug.Log("PlayerOnCollisionEnterEnvironment");
+            //rb.useGravity = false;
             //isGrounded = true;
             isGrounded = 2;
         }
@@ -44,6 +45,14 @@ public class PlayerController : MonoBehaviour {
             SendMessage("ApplyDamage", hurtBoxDamage);
         }
 	}
+
+    void OnCollisionExit(Collision other)
+    {
+        if(other.collider.tag == "Environment")
+        {
+            //rb.useGravity = true;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

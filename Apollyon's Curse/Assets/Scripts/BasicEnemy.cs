@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour {
 
-	public GameObject self;
-	public GameObject player;
+    public GameObject self;
+    public GameObject player;
 
-	public float fSpeed = 10.0f;
+    float fSpeed = 300.0f;
     [Range(1, 10)]
     public float jumpForce = 9.0f;
 
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
-    public int isGrounded = 2;
+    public int isGrounded = 1;
     Rigidbody rb;
     public Vector3 currentVelocity;
 
@@ -25,33 +25,45 @@ public class BasicEnemy : MonoBehaviour {
     public int hurtBoxDamage = 10;
     public float distanceToPlayer;
 
-	public enum EnemyState
-	{
-		Idle,
-		Chase,
-		Attack,
-		Broken
-	}
-	public EnemyState state;
+    public enum EnemyState
+    {
+        Idle,
+        Chase,
+        Attack,
+        Broken
+    }
+    public EnemyState state;
 
-	public float attackDelay = 2.0f;
-	private float attackDelayDefault = 2.0f;
-	public float attackRange = 2.0f;
+    public float attackDelay = 2.0f;
+    private float attackDelayDefault = 2.0f;
+    public float attackRange = 2.0f;
 
-	public float triggerDistance = 5.0f;
+    public float triggerDistance = 5.0f;
+
+    GenericTrigger ChaseRange;
+    GenericTrigger AttackRange;
+    GenericTrigger PersonalSpaceRange;
+    GenericTrigger BufferSpaceRange;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         rb = GetComponent<Rigidbody>();
+
+        //Collect scripts
+        ChaseRange = transform.Find("ChaseRange").GetComponent<GenericTrigger>();
+        AttackRange = transform.Find("AttackRange").GetComponent<GenericTrigger>();
+        PersonalSpaceRange = transform.Find("PersonalSpaceRange").GetComponent<GenericTrigger>();
+        BufferSpaceRange = transform.Find("BufferSpaceRange").GetComponent<GenericTrigger>();
+
         player = GameObject.FindGameObjectWithTag("Player");
-		state = EnemyState.Idle;
-	}
+        state = EnemyState.Idle;
+    }
 
     void OnCollisionEnter(Collision other)
     {
         if (other.collider.tag == "Environment")
         {
-            isGrounded = 2;
+            isGrounded = 1;
         }
         if (other.collider.tag == "HurtBox")
         {
@@ -66,13 +78,14 @@ public class BasicEnemy : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update() {
         //Capture current velocity
         currentVelocity = rb.velocity;
+        currentVelocity.x = 0.0f;
 
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 
-        if(distanceToPlayer > triggerDistance)
+        if (distanceToPlayer > triggerDistance)
         {
             state = EnemyState.Idle;
         }
@@ -82,66 +95,105 @@ public class BasicEnemy : MonoBehaviour {
             state = EnemyState.Broken;
         }
 
-		switch (state)
-		{
-		case EnemyState.Idle:
-			Idle();
-			break;
-		case EnemyState.Chase:
-			Chase();
-			break;
-		case EnemyState.Attack:
-			Attack();
-			break;
-		case EnemyState.Broken:
-			Broken ();
-			break;
-		}
+        switch (state)
+        {
+            case EnemyState.Idle:
+                Idle();
+                break;
+            case EnemyState.Chase:
+                Chase();
+                break;
+            case EnemyState.Attack:
+                Attack();
+                break;
+            case EnemyState.Broken:
+                Broken();
+                break;
+        }
 
-		
+
         //Send velocity update
         rb.velocity = currentVelocity;
     }
 
-	void Idle()
-	{
-        
-		//Is the player nearby?
-		if(distanceToPlayer <= triggerDistance)
-		{
-			//Yes, trigger the trap
-			state = EnemyState.Chase;
-		}
-	}
+    void Idle()
+    {
 
-	void Chase()
-	{
-		//Is player close enough to attack?
-		if((Vector3.Distance(transform.position, player.transform.position) <= attackRange))
-		{
-			if (attackDelay <= 0.0f) {
-				state = EnemyState.Attack;
-				return;
-			}
-			if (attackDelay > 0.0f) {
-				attackDelay -= Time.deltaTime;
-			}
-		}
-		//Is the player to the left?
-		if (player.transform.position.x < transform.position.x) {
-			MoveLeft ();
-		}
+        //Is the player nearby?
+        if (ChaseRange.isTouchingPlayer)
+        {
+            //Yes, chase them
+            state = EnemyState.Chase;
+        }
+    }
 
-		//Is the player to the right?
-		if (player.transform.position.x > transform.position.x) {
-			MoveRight ();
-		}
+    void Chase()
+    {
+        //Is player close enough to attack?
+        if (AttackRange.isTouchingPlayer)
+        {
+            if (attackDelay <= 0.0f) {
+                state = EnemyState.Attack;
+                return;
+            }
+            if (attackDelay > 0.0f) {
+                attackDelay -= Time.deltaTime;
+            }
+        }
+        //Is player too far away?
+        if (!ChaseRange.isTouchingPlayer)
+        {
+            state = EnemyState.Idle;
+        }
         //Is player above?
-        if(player.transform.position.y > transform.position.y)
+        if (player.transform.position.y > transform.position.y)
         {
             Jump();
         }
-	}
+        //Is player within Personal Space aka bubble?
+        if (PersonalSpaceRange.isTouchingPlayer)
+        {
+            //Respect distance and exit
+            MoveAway();
+            return;
+        }
+        if(BufferSpaceRange.isTouchingPlayer)
+        {
+            //Don't move and exit
+            return;
+        }
+        MoveTowards();
+
+    }
+
+    void MoveTowards()
+    {
+        //Is the player to the left?
+        if (player.transform.position.x < transform.position.x)
+        {
+            MoveLeft();
+        }
+
+        //Is the player to the right?
+        if (player.transform.position.x > transform.position.x)
+        {
+            MoveRight();
+        }
+    }
+    void MoveAway()
+    {
+        //Is the player to the left?
+        if (player.transform.position.x < transform.position.x)
+        {
+            MoveRight();
+        }
+
+        //Is the player to the right?
+        if (player.transform.position.x > transform.position.x)
+        {
+            MoveLeft();
+        }
+    }
 
 	void Attack()
 	{
@@ -158,9 +210,10 @@ public class BasicEnemy : MonoBehaviour {
 
     void Jump()
     {
+        MoveTowards();
         if (isGrounded != 0)
         {
-            currentVelocity += Vector3.up * jumpForce;
+            currentVelocity = Vector3.up * jumpForce;
             
             isGrounded--;
         }
