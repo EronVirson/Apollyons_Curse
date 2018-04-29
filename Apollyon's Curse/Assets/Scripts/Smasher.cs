@@ -7,6 +7,7 @@ public class Smasher : MonoBehaviour {
     public Vector3 startPosition;
     public GameObject player;
     public float triggerDistance = 4.5f;
+    GenericTrigger TriggerRange;
     public float speed = 10;
     public float reloadSpeed = 5;
 
@@ -22,6 +23,7 @@ public class Smasher : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        TriggerRange = transform.parent.GetComponent<GenericTrigger>();
         startPosition = this.transform.position;
         player = GameObject.FindGameObjectWithTag("Player");
         state = TrapState.Idle;
@@ -60,7 +62,7 @@ public class Smasher : MonoBehaviour {
     void Idle()
     {
         //Is the player nearby?
-        if((Vector3.Distance(transform.position, player.transform.position) <= triggerDistance) && transform.position.y >= player.transform.position.y)
+        if(TriggerRange.isTouchingPlayer)
         {
             //Yes, trigger the trap
             state = TrapState.Active;

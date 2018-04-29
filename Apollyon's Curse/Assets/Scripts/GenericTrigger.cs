@@ -5,6 +5,7 @@ using UnityEngine;
 public class GenericTrigger : MonoBehaviour {
 
     public bool isTouchingPlayer = false;
+    
 
 	// Use this for initialization
 	void Start () {
