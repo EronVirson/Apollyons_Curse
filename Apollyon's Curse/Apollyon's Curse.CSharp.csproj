@@ -229,6 +229,7 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\EnemyWeapon.cs" />
     <Compile Include="Assets\Scripts\FallingPlatform.cs" />
+    <Compile Include="Assets\Scripts\GenericTrigger.cs" />
     <Compile Include="Assets\Scripts\PendulumSwing.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerWeapon.cs" />
