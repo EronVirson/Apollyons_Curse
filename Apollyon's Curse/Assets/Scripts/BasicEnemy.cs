@@ -43,6 +43,8 @@ public class BasicEnemy : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+
+
         player = GameObject.FindGameObjectWithTag("Player");
 		state = EnemyState.Idle;
 	}
@@ -160,7 +162,7 @@ public class BasicEnemy : MonoBehaviour {
     {
         if (isGrounded != 0)
         {
-            currentVelocity += Vector3.up * jumpForce;
+            currentVelocity = Vector3.up * jumpForce;
             
             isGrounded--;
         }
