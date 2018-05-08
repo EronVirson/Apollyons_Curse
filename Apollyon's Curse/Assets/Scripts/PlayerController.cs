@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour {
@@ -22,13 +23,17 @@ public class PlayerController : MonoBehaviour {
     public GameObject SwordSwipe;
 
     public int health = 100;
+    public Slider healthSlider;
 
     private int hurtBoxDamage = 10;
+    public Animator anim;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
-	}
+        healthSlider.value = health;
+        //anim = GetComponentInChildren<Animator>();
+    }
 
 	void OnCollisionEnter(Collision other){
         Debug.Log("Player Hit something!");
@@ -59,8 +64,16 @@ public class PlayerController : MonoBehaviour {
         //Capture current velocity
         currentVelocity = rb.velocity;
         //Left Right movement
-        currentVelocity.x = 0.0f;
-        currentVelocity += Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed;
+        currentVelocity.x =  Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed;
+
+        if (Input.GetAxis("Horizontal") != 0.0f )
+        {
+            //anim.Play("Running");
+        }
+        if(Input.GetAxis("Horizontal") == 0.0f)
+        {
+            //anim.Play("Idle");
+        }
 
         //Attack thingy
 		if(Input.GetKeyDown(KeyCode.Mouse0) || 
@@ -102,6 +115,7 @@ public class PlayerController : MonoBehaviour {
 
         //Basic jump
         if (Input.GetButtonDown ("Jump") && isGrounded != 0 ) {
+            //anim.Play("Jump");
 			currentVelocity.y = jumpForce;
 			//isGrounded = false;
 			isGrounded--;
@@ -116,9 +130,11 @@ public class PlayerController : MonoBehaviour {
     void ApplyDamage(int damage)
     {
         health -= damage;
+        healthSlider.value = health;
     }
 
-	void BetterJump()
+   
+    void BetterJump()
 	{
 		if (currentVelocity.y < 0) {
 			currentVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;

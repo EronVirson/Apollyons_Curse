@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4639881893504280}
+  - component: {fileID: 65640385778043314}
   m_Layer: 0
   m_Name: Pendulum
   m_TagString: Untagged
@@ -107,7 +108,6 @@ GameObject:
   - component: {fileID: 65056971106980004}
   - component: {fileID: 23283807000258130}
   - component: {fileID: 54583536339784814}
-  - component: {fileID: 59096269532985284}
   - component: {fileID: 114733081287128818}
   m_Layer: 0
   m_Name: Axe
@@ -122,9 +122,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1592835934300866}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -2.004, z: 0}
-  m_LocalScale: {x: 2.9741228, y: 0.24347837, z: 0.13777894}
+  m_LocalRotation: {x: 0.000000016308572, y: 0.000000006369243, z: 0.7823531, w: 0.62283516}
+  m_LocalPosition: {x: 0.4923439, y: -2.9239578, z: -0.000000036225497}
+  m_LocalScale: {x: 4.5637527, y: 0.29602605, z: 0.13777894}
   m_Children:
   - {fileID: 4639881893504280}
   m_Father: {fileID: 4407992100796210}
@@ -138,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 1022189437462970}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0.033291288, y: 0.0004922066, z: 0.056805156}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 227.5001, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4639881893504280}
   m_RootOrder: 0
@@ -150,8 +150,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434230439709658}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.095787, y: -2.1669865, z: 9.695725}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 43.479862, y: 15.53, z: 0}
+  m_LocalScale: {x: 1, y: 0.9624999, z: 1}
   m_Children:
   - {fileID: 4998120435122742}
   - {fileID: 4252106046846668}
@@ -181,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 1432113659727712}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0.033291288, y: 0.0004922066, z: 0.056805156}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 227.5001, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4639881893504280}
   m_RootOrder: 1
@@ -393,40 +393,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
---- !u!59 &59096269532985284
-HingeJoint:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1592835934300866}
-  m_ConnectedBody: {fileID: 54687803322132528}
-  m_Anchor: {x: 0.5, y: 0, z: 0}
-  m_Axis: {x: 0, y: 0, z: 1}
-  m_AutoConfigureConnectedAnchor: 0
-  m_ConnectedAnchor: {x: 0, y: -0.7, z: 0}
-  m_UseSpring: 0
-  m_Spring:
-    spring: 0
-    damper: 0
-    targetPosition: 0
-  m_UseMotor: 0
-  m_Motor:
-    targetVelocity: 0
-    force: 0
-    freeSpin: 0
-  m_UseLimits: 0
-  m_Limits:
-    min: 0
-    max: 0
-    bounciness: 0
-    bounceMinVelocity: 0.2
-    contactDistance: 0
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 1
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
 --- !u!59 &59938288317300912
 HingeJoint:
   m_ObjectHideFlags: 1
@@ -437,7 +403,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 28.00282, y: 5.0954514, z: 0}
+  m_ConnectedAnchor: {x: 43.479862, y: 16.01125, z: 0}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -485,20 +451,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65640385778043314
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1420140087524094}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4830835, y: 0.59089255, z: 1}
+  m_Center: {x: 0.049433663, y: 0.2219628, z: 0}
 --- !u!114 &114733081287128818
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1592835934300866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 230b49cac43443c41b33a71437878c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 54583536339784814}
   leftPushRange: 45
   rightPushRange: 135
   velocityThreshold: {x: 0, y: 0, z: 120}
-  AngularCapture: {x: 0, y: 0, z: 0}
-  AngMagnitude: 0
+  AngularCapture: {x: -0.00000006735258, y: 0.000000042785242, z: 0.4181674}
+  AngMagnitude: 0.4181674

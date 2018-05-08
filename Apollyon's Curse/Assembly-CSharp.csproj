@@ -56,21 +56,28 @@
      <Compile Include="Assets\2.5DTileEditor\Example_2.5D_Platformer\CharacterMovement.cs" />
      <Compile Include="Assets\2.5DTileEditor\Example_RollABall\TiltPlane.cs" />
      <Compile Include="Assets\2.5DTileEditor\Example_RollABall\WinTrigger.cs" />
+     <Compile Include="Assets\Pendulum_swing.cs" />
+     <Compile Include="Assets\Rotation.cs" />
      <Compile Include="Assets\Scripts\BasicEnemy.cs" />
      <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\EnemyWeapon.cs" />
      <Compile Include="Assets\Scripts\FallingPlatform.cs" />
+     <Compile Include="Assets\Scripts\GenericTrigger.cs" />
+     <Compile Include="Assets\Scripts\PendulumMovement.cs" />
      <Compile Include="Assets\Scripts\PendulumSwing.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerWeapon.cs" />
      <Compile Include="Assets\Scripts\Sawblade.cs" />
+     <Compile Include="Assets\Scripts\SawMovement.cs" />
      <Compile Include="Assets\Scripts\SawTrap.cs" />
      <Compile Include="Assets\Scripts\Smasher.cs" />
+     <Compile Include="Assets\Scripts\SmasherMovement.cs" />
      <Compile Include="Assets\Scripts\SwordSwipe.cs" />
+     <Compile Include="Assets\Scripts\TrapWeapon.cs" />
      <Compile Include="Assets\Scripts\TurretAiming.cs" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>M:/Apollyons_Curse-master/Apollyons_Curse-master/Apollyon's Curse/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>G:/Apollyons_Curse/Apollyon's Curse/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="Vuforia.UnityExtensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
