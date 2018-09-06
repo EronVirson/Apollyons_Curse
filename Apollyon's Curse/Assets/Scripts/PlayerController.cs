@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
         healthSlider.value = health;
-        //anim = GetComponentInChildren<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
 	void OnCollisionEnter(Collision other){
@@ -68,18 +68,16 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetAxis("Horizontal") != 0.0f )
         {
-            //anim.Play("Running");
+            anim.Play("Running");
         }
-        if(Input.GetAxis("Horizontal") == 0.0f)
-        {
-            //anim.Play("Idle");
-        }
+        
 
         //Attack thingy
 		if(Input.GetKeyDown(KeyCode.Mouse0) || 
             Input.GetKeyDown(KeyCode.RightControl) ||
             Input.GetButtonDown("Fire1"))
         {
+            anim.Play("Combat");
             GameObject sword = Instantiate(SwordSwipe) as GameObject;
             sword.transform.parent = this.transform;
             sword.transform.localPosition = Vector3.zero + new Vector3(0.0f, 1.0f, 0.0f);
@@ -115,9 +113,17 @@ public class PlayerController : MonoBehaviour {
 
         //Basic jump
         if (Input.GetButtonDown ("Jump") && isGrounded != 0 ) {
-            //anim.Play("Jump");
+            anim.Play("Jump");
 			currentVelocity.y = jumpForce;
-			//isGrounded = false;
+			if(isGrounded >= 2)
+            {
+                anim.Play("Jump");
+            }
+            if(isGrounded == 1)
+            {
+                anim.Play("Second Jump");
+            }
+            //isGrounded = false;
 			isGrounded--;
 		}
 		//Better Jump
