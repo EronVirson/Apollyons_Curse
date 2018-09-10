@@ -28,11 +28,23 @@ public class PlayerController : MonoBehaviour {
     private int hurtBoxDamage = 10;
     public Animator anim;
 
+    public enum animState
+    {
+        Idle,
+        Combat,
+        Running,
+        Jump,
+        SecondJump
+    }
+    public animState currentAnim;
+    public animState lastAnim;
+
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
         healthSlider.value = health;
         anim = GetComponentInChildren<Animator>();
+        
     }
 
 	void OnCollisionEnter(Collision other){
@@ -68,22 +80,30 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetAxis("Horizontal") != 0.0f )
         {
-            anim.Play("Running");
+            anim.SetBool("IsRunning", true);
         }
-        
+        else
+        {
+            anim.SetBool("IsRunning", false);
+        }
+        anim.SetInteger("IsJumping", isGrounded);
+
 
         //Attack thingy
-		if(Input.GetKeyDown(KeyCode.Mouse0) || 
+        if (Input.GetKeyDown(KeyCode.Mouse0) || 
             Input.GetKeyDown(KeyCode.RightControl) ||
             Input.GetButtonDown("Fire1"))
         {
-            anim.Play("Combat");
+            anim.SetBool("InCombat", true);
             GameObject sword = Instantiate(SwordSwipe) as GameObject;
             sword.transform.parent = this.transform;
             sword.transform.localPosition = Vector3.zero + new Vector3(0.0f, 1.0f, 0.0f);
             Destroy(sword, .25f);
         }
-        
+        else
+        {
+            anim.SetBool("InCombat", false);
+        }
         //Double Tap Dash
         if (Input.GetKeyDown(KeyCode.A) ||
 			Input.GetAxis("Horizontal") < 0.0f)
@@ -113,19 +133,12 @@ public class PlayerController : MonoBehaviour {
 
         //Basic jump
         if (Input.GetButtonDown ("Jump") && isGrounded != 0 ) {
-            anim.Play("Jump");
+            
 			currentVelocity.y = jumpForce;
-			if(isGrounded >= 2)
-            {
-                anim.Play("Jump");
-            }
-            if(isGrounded == 1)
-            {
-                anim.Play("Second Jump");
-            }
             //isGrounded = false;
 			isGrounded--;
-		}
+            
+        }
 		//Better Jump
 		//BetterJump();
 
