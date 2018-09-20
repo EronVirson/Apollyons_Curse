@@ -8,13 +8,13 @@ public class PlayerController : MonoBehaviour {
 
 	float fSpeed = 400.0f;
 	[Range(1,10)]
-	public float jumpForce = 9.0f;
+	public float jumpForce = 6.5f;
 
 	public float fallMultiplier = 2.5f;
 	public float lowJumpMultiplier = 2f;
 
 	public int isGrounded = 2;
-	Rigidbody rb;
+	public Rigidbody rb;
     public Vector3 currentVelocity;
 
     public float tapSpeed = 0.5f;
@@ -41,9 +41,11 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody> ();
+        Debug.Log("Start!");
+        healthSlider = GameObject.FindGameObjectWithTag("MainCamera").GetComponentInChildren<Slider>();
+        rb = this.GetComponent<Rigidbody>();
         healthSlider.value = health;
-        anim = GetComponentInChildren<Animator>();
+        //anim = GetComponentInChildren<Animator>();
         
     }
 
@@ -76,71 +78,13 @@ public class PlayerController : MonoBehaviour {
         //Capture current velocity
         currentVelocity = rb.velocity;
         //Left Right movement
-        currentVelocity.x =  Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed;
-
-        if (Input.GetAxis("Horizontal") != 0.0f )
-        {
-            anim.SetBool("IsRunning", true);
-        }
-        else
-        {
-            anim.SetBool("IsRunning", false);
-        }
-        anim.SetInteger("IsJumping", isGrounded);
-
+        Movement();
 
         //Attack thingy
-        if (Input.GetKeyDown(KeyCode.Mouse0) || 
-            Input.GetKeyDown(KeyCode.RightControl) ||
-            Input.GetButtonDown("Fire1"))
-        {
-            anim.SetBool("InCombat", true);
-            GameObject sword = Instantiate(SwordSwipe) as GameObject;
-            sword.transform.parent = this.transform;
-            sword.transform.localPosition = Vector3.zero + new Vector3(0.0f, 1.0f, 0.0f);
-            Destroy(sword, .25f);
-        }
-        else
-        {
-            anim.SetBool("InCombat", false);
-        }
-        //Double Tap Dash
-        if (Input.GetKeyDown(KeyCode.A) ||
-			Input.GetAxis("Horizontal") < 0.0f)
-        {
-            transform.forward = Vector3.left;
-            if((Time.time - lastTapTime) < tapSpeed)
-            {
-                //Tap Success
-                Debug.Log("Double A");
-                //currentVelocity += Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed * 100;
-            }
-            lastTapTime = Time.time;
-        }
-		if (Input.GetKeyDown(KeyCode.D) ||
-			Input.GetAxis("Horizontal") > 0.0f)
-        {
-            transform.forward = Vector3.right;
-            if ((Time.time - lastTapTime) < tapSpeed)
-            {
-                //Tap Success
-                Debug.Log("Double D");
-                //currentVelocity += Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed * 100;
-            }
-            lastTapTime = Time.time;
-        }
-        
+        Attack();
 
         //Basic jump
-        if (Input.GetButtonDown ("Jump") && isGrounded != 0 ) {
-            
-			currentVelocity.y = jumpForce;
-            //isGrounded = false;
-			isGrounded--;
-            
-        }
-		//Better Jump
-		//BetterJump();
+        Jump();
 
         //Send velocity update
         rb.velocity = currentVelocity;
@@ -152,7 +96,61 @@ public class PlayerController : MonoBehaviour {
         healthSlider.value = health;
     }
 
-   
+    //Movement
+    void Movement()
+    {
+        currentVelocity.x = Input.GetAxis("Horizontal") * Time.deltaTime * fSpeed;
+
+        if (Input.GetAxis("Horizontal") != 0.0f)
+        {
+            //anim.SetBool("IsRunning", true);
+        }
+        else
+        {
+            //anim.SetBool("IsRunning", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.A) ||
+            Input.GetAxis("Horizontal") < 0.0f)
+        {
+            transform.forward = Vector3.left;
+        }
+        if (Input.GetKeyDown(KeyCode.D) ||
+            Input.GetAxis("Horizontal") > 0.0f)
+        {
+            transform.forward = Vector3.right;
+        }
+    }
+    //Jump
+    void Jump()
+    {
+        if(Input.GetButtonDown ("Jump") && isGrounded != 0 ) {
+            
+			currentVelocity.y = jumpForce;
+			isGrounded--;
+            //anim.SetInteger("IsJumping", isGrounded);
+        }
+    }
+    //Attack
+    void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) ||
+            Input.GetKeyDown(KeyCode.RightControl) ||
+            Input.GetButtonDown("Fire1"))
+        {
+            //anim.SetBool("InCombat", true);
+            GameObject sword = Instantiate(SwordSwipe) as GameObject;
+            sword.transform.parent = this.transform;
+            sword.transform.localPosition = Vector3.zero + new Vector3(0.0f, 1.0f, 0.0f);
+            Destroy(sword, .25f);
+        }
+        else
+        {
+            //anim.SetBool("InCombat", false);
+        }
+    }
+
+    //Obsolete function
     void BetterJump()
 	{
 		if (currentVelocity.y < 0) {
