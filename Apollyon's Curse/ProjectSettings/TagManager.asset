@@ -8,6 +8,8 @@ TagManager:
   - HurtBox
   - Environment
   - Enemy
+  - Door
+  - DoorMat
   layers:
   - Default
   - TransparentFX

@@ -13,12 +13,7 @@ public class PlayerWeapon : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("PlayerWeapon::OnTriggerEnter");
-        if (other.gameObject.tag == "Enemy")
-        {
-            Debug.Log("Hurting the player");
-            other.gameObject.SendMessage("ApplyDamage", damage);
-        }
+        other.gameObject.SendMessage("ApplyDamage", damage);   
     }
 
     // Update is called once per frame

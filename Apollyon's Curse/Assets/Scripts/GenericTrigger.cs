@@ -5,6 +5,7 @@ using UnityEngine;
 public class GenericTrigger : MonoBehaviour {
 
     public bool isTouchingPlayer = false;
+    public bool isTouchingCamera = false;
     
 
 	// Use this for initialization
@@ -18,6 +19,10 @@ public class GenericTrigger : MonoBehaviour {
         {
             isTouchingPlayer = true;
         }
+        if(other.gameObject.tag == "MainCamera")
+        {
+            isTouchingCamera = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -25,6 +30,10 @@ public class GenericTrigger : MonoBehaviour {
         if(other.gameObject.tag == "Player")
         {
             isTouchingPlayer = false;
+        }
+        if (other.gameObject.tag == "MainCamera")
+        {
+            isTouchingCamera = false;
         }
     }
 
