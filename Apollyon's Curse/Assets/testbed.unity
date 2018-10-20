@@ -396,6 +396,20 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 33932587640899940, guid: 68ab9182e6c990e4f9073239e23a0fd5,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 7c05bd9f07a7fea46a6cd6c65acbde53, type: 3}
+    - target: {fileID: 4631384976714376, guid: 68ab9182e6c990e4f9073239e23a0fd5, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.322386
+      objectReference: {fileID: 0}
+    - target: {fileID: 23251799463096118, guid: 68ab9182e6c990e4f9073239e23a0fd5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68ab9182e6c990e4f9073239e23a0fd5, type: 2}
   m_IsPrefabAsset: 0
@@ -864,7 +878,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4984960148857088, guid: b68c649387cd7e944b8db639e880682e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 46.55
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 4984960148857088, guid: b68c649387cd7e944b8db639e880682e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -872,7 +886,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4984960148857088, guid: b68c649387cd7e944b8db639e880682e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: -15.4
       objectReference: {fileID: 0}
     - target: {fileID: 4984960148857088, guid: b68c649387cd7e944b8db639e880682e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -908,6 +922,11 @@ Prefab:
         type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224093968023916810, guid: b68c649387cd7e944b8db639e880682e,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 163
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b68c649387cd7e944b8db639e880682e, type: 2}

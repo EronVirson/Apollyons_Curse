@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
     public Vector3 currentVelocity;
 
     public GameObject SwordSwipe;
-    private GameObject MainCamera;
+    public GameObject MainCamera;
 
     public int health = 100;
     public Slider healthSlider;
@@ -43,16 +43,25 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         Debug.Log("Start!");
-        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-
-        healthSlider = MainCamera.GetComponentInChildren<Slider>();
-        healthSlider.value = health;
+        //Find Camera and UI
+        FindCamera();
 
         karaAnim = GetComponentInChildren<Animator>();
 
         rb = this.GetComponent<Rigidbody>();
 
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    void FindCamera()
+    {
+        MainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+
+        healthSlider = MainCamera.GetComponentInChildren<Slider>();
+        healthSlider.value = health;
+
+        //If camera gets a new child later, just blame this line for when you are screaming
+        panelAnim = MainCamera.transform.GetChild(0).GetComponentInChildren<Animator>();
     }
 
 	void OnCollisionEnter(Collision other){
@@ -93,6 +102,8 @@ public class PlayerController : MonoBehaviour {
 
         //Many many timers
         Timers();
+
+        healthSlider.value = health;
 
         //Send velocity update
         rb.velocity = currentVelocity;
@@ -241,10 +252,9 @@ public class PlayerController : MonoBehaviour {
         {
             //Find Spot
             FindDoorMat();
-            
+
             //Reveal
-            panelAnim.SetBool("start", true);
-            panelAnim.SetBool("end", false);
+            FindCamera();
             bDoorLockout = false;
         }
     }

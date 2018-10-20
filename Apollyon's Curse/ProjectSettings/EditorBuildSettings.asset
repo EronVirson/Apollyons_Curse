@@ -5,70 +5,73 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/TestBasement.unity
     guid: e1f9f2442a3c25f44b1dcc8e829d6e64
-  - enabled: 1
+  - enabled: 0
     path: Assets/TestHallway.unity
     guid: da620896f16d73e4c94d58d08780f24f
-  - enabled: 0
-    path: Assets/Scenes/AC_Room20 - ApollyonChamber.unity
-    guid: dd56fb72d68ecd649aef1875a6dc41b1
-  - enabled: 0
-    path: Assets/Scenes/AC_Room1 - Exterior - Start.unity
+  - enabled: 1
+    path: Assets/Scenes/AC_Room0.unity
+    guid: 50e07437459d5a24d85915ecce279d0e
+  - enabled: 1
+    path: Assets/Scenes/AC_Room1.unity
     guid: a57a800606261f2459d19131308547c9
-  - enabled: 0
-    path: Assets/Scenes/AC_Room2 - Exterior.unity
+  - enabled: 1
+    path: Assets/Scenes/AC_Room2.unity
     guid: 1bd88be8f81cc0b4aa82bb2941de5a04
-  - enabled: 0
-    path: Assets/Scenes/AC_Room3 - Exterior.unity
+  - enabled: 1
+    path: Assets/Scenes/AC_Room3.unity
     guid: ddf811326c0ebdd4681f49e0ad00aebe
-  - enabled: 0
-    path: Assets/Scenes/AC_Room4 - Exterior.unity
+  - enabled: 1
+    path: Assets/Scenes/AC_Room4.unity
     guid: 7615680cd421c5843864b91e8a22fcf0
-  - enabled: 0
-    path: Assets/Scenes/AC_Room5 - Interior.unity
+  - enabled: 1
+    path: Assets/Scenes/AC_Room5.unity
     guid: eef75424cb6ca0241962bcb4a0089345
-  - enabled: 0
-    path: Assets/Scenes/AC_Room6 - Exterior.unity
+  - enabled: 1
+    path: Assets/Scenes/AC_Room6.unity
     guid: 827a969eaafbf164fbeac7a9d8b3cd00
   - enabled: 0
-    path: Assets/Scenes/AC_Room7 - Interior.unity
+    path: Assets/Scenes/AC_Room7.unity
     guid: 5cbf3d1d09c9b2d48930be5bc05c1263
   - enabled: 0
-    path: Assets/Scenes/AC_Room8 - Exterior.unity
+    path: Assets/Scenes/AC_Room8.unity
     guid: 023895113479cd44bb4d5e578f08d754
   - enabled: 0
-    path: Assets/Scenes/AC_Room9 - Interior - Generator1.unity
+    path: Assets/Scenes/AC_Room9.unity
     guid: b686ece9ddd4bbf4b8ce12a978a64bc8
   - enabled: 0
-    path: Assets/Scenes/AC_Room10 - Interior.unity
+    path: Assets/Scenes/AC_Room10.unity
     guid: f5ac168ec038532499fc39f4bec3e38e
   - enabled: 0
-    path: Assets/Scenes/AC_Room11 - Interior.unity
+    path: Assets/Scenes/AC_Room11.unity
     guid: 5e5f312a300f622419249b6108aef15b
   - enabled: 0
-    path: Assets/Scenes/AC_Room12 - Interior.unity
+    path: Assets/Scenes/AC_Room12.unity
     guid: c8f23b36dcb05e147a0fa7537fce6526
   - enabled: 0
-    path: Assets/Scenes/AC_Room13 - Exterior.unity
+    path: Assets/Scenes/AC_Room13.unity
     guid: e7b85d09afa246945adfe65bd732d20a
   - enabled: 0
-    path: Assets/Scenes/AC_Room14 - Extrerior - Generator2.unity
+    path: Assets/Scenes/AC_Room14.unity
     guid: 483d4606229e8824484d0d239805477e
   - enabled: 0
-    path: Assets/Scenes/AC_Room15 -Exterior.unity
+    path: Assets/Scenes/AC_Room15.unity
     guid: ed7fdcf37ede92340899baf181dfd3d2
   - enabled: 0
-    path: Assets/Scenes/AC_Room16 - Exterior.unity
+    path: Assets/Scenes/AC_Room16.unity
     guid: d8d39c36b88233e4f8a2a40062203a89
   - enabled: 0
-    path: Assets/Scenes/AC_Room17 - Interior.unity
+    path: Assets/Scenes/AC_Room17.unity
     guid: 39e31b932a35fff428ab3bdddc1e5633
   - enabled: 0
-    path: Assets/Scenes/AC_Room18 - Elysium.unity
+    path: Assets/Scenes/AC_Room18.unity
     guid: d261d657caf44634581538f0b554e79a
   - enabled: 0
-    path: Assets/Scenes/AC_Room19 - Elysium.unity
+    path: Assets/Scenes/AC_Room19.unity
     guid: ef9026f7c888c9d4aa76ee87bb8b848f
+  - enabled: 0
+    path: Assets/Scenes/AC_Room20.unity
+    guid: dd56fb72d68ecd649aef1875a6dc41b1
   m_configObjects: {}

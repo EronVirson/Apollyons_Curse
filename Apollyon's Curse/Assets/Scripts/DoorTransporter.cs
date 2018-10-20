@@ -22,7 +22,7 @@ public class DoorTransporter : MonoBehaviour {
 	void Start () {
         TransitionTrigger = Trigger.GetComponent<GenericTrigger>();
         player = GameObject.FindGameObjectWithTag("Player");
-        currentScene = SceneManager.GetActiveScene().name;
+        currentScene = "Scenes/" + SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame

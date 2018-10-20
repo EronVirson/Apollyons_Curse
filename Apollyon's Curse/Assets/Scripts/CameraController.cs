@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
 	public GameObject player;
-	public float smoothSpeed = 0.125f;
+	public float smoothSpeed = 0.4f;
 
     public Vector3 offset;
     public Vector3 focusOffset;
@@ -16,11 +16,11 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-        offset = new Vector3(0, 1, -20);
+        offset = new Vector3(0, 1, -10);
         focusOffset = new Vector3(0, 2, 0);
         player = GameObject.FindGameObjectWithTag("Player");
 
-        DontDestroyOnLoad(this.gameObject);
+        transform.position = player.transform.position + offset;
     }
 
     

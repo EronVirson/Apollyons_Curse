@@ -168,21 +168,6 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224002741401554068, guid: b68c649387cd7e944b8db639e880682e,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224002741401554068, guid: b68c649387cd7e944b8db639e880682e,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224002741401554068, guid: b68c649387cd7e944b8db639e880682e,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b68c649387cd7e944b8db639e880682e, type: 2}
   m_IsPrefabAsset: 0
@@ -356,11 +341,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 159313419}
   m_Mesh: {fileID: 4300034, guid: 82e0ff0d7292a634e99bd7a9f5311e9d, type: 3}
---- !u!95 &205869680 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 95408280770457066, guid: b68c649387cd7e944b8db639e880682e,
-    type: 2}
-  m_PrefabInternal: {fileID: 76772019}
 --- !u!1 &230214737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,16 +1701,6 @@ Prefab:
     - target: {fileID: 4891866289858836, guid: 01539ac993472ae48a93c112f1a17413, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114679634556021008, guid: 01539ac993472ae48a93c112f1a17413,
-        type: 2}
-      propertyPath: panelAnim
-      value: 
-      objectReference: {fileID: 205869680}
-    - target: {fileID: 23294269442759636, guid: 01539ac993472ae48a93c112f1a17413,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01539ac993472ae48a93c112f1a17413, type: 2}
